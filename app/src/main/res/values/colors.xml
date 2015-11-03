@@ -4,5 +4,7 @@
     <color name="colorPrimaryDark">#9fb80c</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="fafafa">#FAFAFA</color>
+    <color name="android_grey">#FAFAFA</color>
+
+    <color name="white">#FFFFFF</color>
 </resources>

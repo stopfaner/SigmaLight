@@ -1,4 +1,4 @@
-package com.stopfan.sigmalight;
+package com.stopfan.sigmalight.ui;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -10,6 +10,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
+
+import com.stopfan.sigmalight.R;
 
 public class MainActivity extends AppCompatActivity {
 
