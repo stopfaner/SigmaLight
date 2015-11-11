@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Sigma Light</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_profile">ProfileActivity</string>
+
+    <string name="opened"/>
+    <string name="closed"/>
+
 </resources>
