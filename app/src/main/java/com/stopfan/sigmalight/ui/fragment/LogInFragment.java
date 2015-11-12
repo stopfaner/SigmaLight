@@ -83,17 +83,7 @@ public class LogInFragment extends Fragment {
         registerText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager manager = getActivity().getSupportFragmentManager();
-
-                FragmentTransaction ft = manager.beginTransaction();
-                ft.setCustomAnimations(R.anim.slide_in, R.anim.slide_out, R.anim.push_slide_in, R.anim.pop_slide_out);
-
-                RegisterFragment fragment = RegisterFragment.getInstance();
-
-                ft.replace(R.id.fragment_host, fragment, "loginFragment");
-                manager.popBackStack("login", FragmentManager.POP_BACK_STACK_INCLUSIVE);
-                ft.addToBackStack("register");
-                ft.commit();
+                register();
             }
         });
 
@@ -133,6 +123,8 @@ public class LogInFragment extends Fragment {
                             public void call(RequestResult s) {
                                 if ("success".equals(s.status)) {
                                     Data.setAuthorized(getActivity());
+                                    Data.saveUserData(getActivity(), s.data);
+                                    getProfile();
                                 } else {
                                     Toast.makeText(getActivity(), "Неправильный логин или пароль", Toast.LENGTH_LONG).show();
                                 }
@@ -144,5 +136,33 @@ public class LogInFragment extends Fragment {
                             }
                         })
         );
+    }
+
+    private void register() {
+        FragmentManager manager = getActivity().getSupportFragmentManager();
+
+        FragmentTransaction ft = manager.beginTransaction();
+        ft.setCustomAnimations(R.anim.slide_in, R.anim.slide_out, R.anim.push_slide_in, R.anim.pop_slide_out);
+
+        RegisterFragment fragment = RegisterFragment.getInstance();
+
+        ft.replace(R.id.fragment_host, fragment, "loginFragment");
+        manager.popBackStack("login", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        ft.addToBackStack("register");
+        ft.commit();
+    }
+
+    private void getProfile() {
+        FragmentManager manager = getActivity().getSupportFragmentManager();
+
+        FragmentTransaction ft = manager.beginTransaction();
+        ft.setCustomAnimations(R.anim.slide_in, R.anim.slide_out, R.anim.push_slide_in, R.anim.pop_slide_out);
+
+        ProfileFragment fragment = ProfileFragment.getInstance();
+
+        ft.replace(R.id.fragment_host, fragment, "profileFragment");
+        manager.popBackStack("login", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        ft.addToBackStack("profile");
+        ft.commit();
     }
 }

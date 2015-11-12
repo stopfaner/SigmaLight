@@ -3,6 +3,7 @@ package com.stopfan.sigmalight.ui;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -17,6 +18,7 @@ import com.stopfan.sigmalight.R;
 import com.stopfan.sigmalight.core.utils.Data;
 import com.stopfan.sigmalight.ui.fragment.LogInFragment;
 import com.stopfan.sigmalight.ui.fragment.MainFragment;
+import com.stopfan.sigmalight.ui.fragment.ProfileFragment;
 import com.stopfan.sigmalight.ui.fragment.RegisterFragment;
 
 import butterknife.Bind;
@@ -70,7 +72,17 @@ public class MainActivity extends ParentActivity {
             @Override
             public void onClick(View v) {
                 if (Data.isAuthorized(getApplicationContext())) {
-                    //TODO: open cabinet
+                    FragmentManager manager = getSupportFragmentManager();
+
+                    FragmentTransaction ft = manager.beginTransaction();
+                    ft.setCustomAnimations(R.anim.slide_in, R.anim.slide_out, R.anim.push_slide_in, R.anim.pop_slide_out);
+
+                    ProfileFragment fragment = ProfileFragment.getInstance();
+
+                    ft.replace(R.id.fragment_host, fragment, "profileFragment");
+                    manager.popBackStack("login", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                    ft.addToBackStack("profile");
+                    ft.commit();
                 } else {
                     FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                     ft.setCustomAnimations(R.anim.slide_in, R.anim.slide_out, R.anim.push_slide_in, R.anim.pop_slide_out);

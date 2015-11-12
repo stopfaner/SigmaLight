@@ -67,6 +67,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Your name"
+                    android:id="@+id/name_edit"
                     android:layout_marginLeft="16dp"/>
 
             </LinearLayout>
@@ -102,6 +103,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Your surname"
+                    android:id="@+id/surname_edit"
                     android:layout_marginLeft="16dp"/>
 
             </LinearLayout>
@@ -136,7 +138,8 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Your surname"
+                    android:hint="Your gender"
+                    android:id="@+id/gender_edit"
                     android:layout_marginLeft="16dp"/>
 
             </LinearLayout>
@@ -172,7 +175,8 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Email"
+                    android:hint="Phone"
+                    android:id="@+id/phone_edit"
                     android:layout_marginLeft="16dp"/>
 
             </LinearLayout>
@@ -208,7 +212,8 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Your surname"
+                    android:hint="Your e-mail"
+                    android:id="@+id/email_edit"
                     android:layout_marginLeft="16dp"/>
 
             </LinearLayout>
@@ -244,6 +249,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Your password"
+                    android:id="@+id/password_edit"
                     android:layout_marginLeft="16dp"/>
 
             </LinearLayout>
@@ -264,6 +270,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Register"
+            android:id="@+id/register_button"
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginRight="16dp"
