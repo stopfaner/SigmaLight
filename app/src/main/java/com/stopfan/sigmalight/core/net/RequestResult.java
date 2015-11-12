@@ -80,7 +80,6 @@ public class RequestResult {
                     }
                 }
 
-
             }
 
             return null;

@@ -123,6 +123,9 @@ public class LogInFragment extends Fragment {
                             public void call(RequestResult s) {
                                 if ("success".equals(s.status)) {
                                     Data.setAuthorized(getActivity());
+                                    Timber.d("NAME: " + s.data.getName());
+                                    Timber.d("NAME: " + s.data.getName());
+                                    Timber.d("NAME: " + s.data.getName());
                                     Data.saveUserData(getActivity(), s.data);
                                     getProfile();
                                 } else {

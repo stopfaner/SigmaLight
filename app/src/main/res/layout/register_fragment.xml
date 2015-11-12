@@ -16,14 +16,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
-                android:background="@color/colorAccent">
+                android:background="@color/grey_400">
 
             </LinearLayout>
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="72dp"
                 android:layout_height="72dp"
-                android:src="@color/colorPrimaryDark"
+                android:src="@color/grey_500"
                 android:layout_centerHorizontal="true"
                 android:layout_alignParentBottom="true"
                 />
@@ -39,7 +39,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/colorAccent"
+                android:background="@color/grey_500"
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginRight="16dp"
@@ -60,6 +60,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Name:"
+                    android:minWidth="80dp"
                     style="@android:style/TextAppearance.Medium"
                     />
 
@@ -75,7 +76,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/colorAccent"
+                android:background="@color/grey_500"
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginRight="16dp"
@@ -96,6 +97,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Surname:"
+                    android:minWidth="80dp"
                     style="@android:style/TextAppearance.Medium"
                     />
 
@@ -111,81 +113,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/colorAccent"
-                android:layout_marginLeft="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginEnd="16dp"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginLeft="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Gender:"
-                    style="@android:style/TextAppearance.Medium"
-                    />
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Your gender"
-                    android:id="@+id/gender_edit"
-                    android:layout_marginLeft="16dp"/>
-
-            </LinearLayout>
-
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/colorAccent"
-                android:layout_marginLeft="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginEnd="16dp"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginLeft="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Phone:"
-                    style="@android:style/TextAppearance.Medium"
-                    />
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Phone"
-                    android:id="@+id/phone_edit"
-                    android:layout_marginLeft="16dp"/>
-
-            </LinearLayout>
-
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/colorAccent"
+                android:background="@color/grey_500"
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginRight="16dp"
@@ -206,6 +134,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Email:"
+                    android:minWidth="80dp"
                     style="@android:style/TextAppearance.Medium"
                     />
 
@@ -221,7 +150,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/colorAccent"
+                android:background="@color/grey_500"
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginRight="16dp"
@@ -242,6 +171,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Password:"
+                    android:minWidth="80dp"
                     style="@android:style/TextAppearance.Medium"
                     />
 
@@ -257,12 +187,87 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/colorAccent"
+                android:background="@color/grey_500"
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginEnd="16dp"/>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gender:"
+                    android:minWidth="80dp"
+                    style="@android:style/TextAppearance.Medium"
+                    />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Your gender"
+                    android:id="@+id/gender_edit"
+                    android:layout_marginLeft="16dp"/>
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey_500"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginEnd="16dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Phone:"
+                    android:minWidth="80dp"
+                    style="@android:style/TextAppearance.Medium"
+                    />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Phone"
+                    android:id="@+id/phone_edit"
+                    android:layout_marginLeft="16dp"/>
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey_500"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginEnd="16dp"/>
 
         </LinearLayout>
 
@@ -271,10 +276,10 @@
             android:layout_height="match_parent"
             android:text="Register"
             android:id="@+id/register_button"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginEnd="32dp"
             android:layout_marginBottom="16dp"
             android:background="@color/colorAccent"
             />

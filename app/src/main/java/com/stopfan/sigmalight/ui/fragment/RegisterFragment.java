@@ -3,6 +3,8 @@ package com.stopfan.sigmalight.ui.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,7 +76,34 @@ public class RegisterFragment extends Fragment {
         mRegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                User user = new User();
+                if (mNameEdit.getText().toString().isEmpty())
+                    Toast.makeText(getActivity(), "Введите имя", Toast.LENGTH_SHORT).show();
+                else
+                    user.setName(mNameEdit.getText().toString());
+                if (mSurnameEdit.getText().toString().isEmpty())
+                    Toast.makeText(getActivity(), "Введите фамилию", Toast.LENGTH_SHORT).show();
+                else
+                    user.setSurname(mSurnameEdit.getText().toString());
+                if (mMaleEdit.getText().toString().isEmpty())
+                    Toast.makeText(getActivity(), "Введите пол", Toast.LENGTH_SHORT).show();
+                else
+                    user.setGender(mMaleEdit.getText().toString());
+                if (mPhoneEdit.getText().toString().isEmpty())
+                    Toast.makeText(getActivity(), "Введите номер телефона", Toast.LENGTH_SHORT).show();
+                else
+                    user.setPhone(mPhoneEdit.getText().toString());
+                if (mEmailEdit.getText().toString().isEmpty())
+                    Toast.makeText(getActivity(), "Введите e-mail", Toast.LENGTH_SHORT).show();
+                else
+                    user.setEmail(mEmailEdit.getText().toString());
+                if (mPasswordEdit.getText().toString().isEmpty())
+                    Toast.makeText(getActivity(), "Введите пароль", Toast.LENGTH_SHORT).show();
+                else
+                    user.setPassword(mPasswordEdit.getText().toString());
+                user.setPhoto("");
 
+                register(user);
             }
         });
 
@@ -106,7 +135,20 @@ public class RegisterFragment extends Fragment {
                         .subscribe(new Action1<RequestResult>() {
                             @Override
                             public void call(RequestResult s) {
-                               //TODO: finish register
+                                if (s.status.equals("success")) {
+                                    FragmentManager manager = getActivity().getSupportFragmentManager();
+
+                                    FragmentTransaction ft = manager.beginTransaction();
+                                    ft.setCustomAnimations(R.anim.slide_in, R.anim.slide_out, R.anim.push_slide_in, R.anim.pop_slide_out);
+
+                                    LogInFragment fragment = LogInFragment.getInstance();
+
+                                    ft.replace(R.id.fragment_host, fragment, "loginFragment");
+                                    manager.popBackStack("register", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                                    ft.addToBackStack("login");
+                                    ft.commit();
+                                } else
+                                    Toast.makeText(getActivity(), "Ошибка регистрации", Toast.LENGTH_SHORT).show();
                             }
                         }, new Action1<Throwable>() {
                             @Override

@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.stopfan.sigmalight.R;
 import com.stopfan.sigmalight.core.models.User;
@@ -20,6 +21,12 @@ public class ProfileFragment extends Fragment {
 
     private User user;
 
+    private TextView mNameText;
+    private TextView mSurnameText;
+    private TextView mGenderText;
+    private TextView mEmailText;
+    private TextView mPhoneText;
+
     public static ProfileFragment getInstance() {
         ProfileFragment fragment = new ProfileFragment();
         Bundle args = new Bundle();
@@ -27,13 +34,11 @@ public class ProfileFragment extends Fragment {
         return fragment;
     }
 
+    public ProfileFragment() {}
+
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        user = Data.getUserFromPrefs(getActivity());
-
-        Timber.d(user.getName());
-
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
 
     @Nullable
@@ -41,11 +46,28 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_profile, container, false);
 
+        mNameText = (TextView) root.findViewById(R.id.name_text);
+        mSurnameText = (TextView) root.findViewById(R.id.surname_text);
+        mGenderText = (TextView) root.findViewById(R.id.male_text);
+        mEmailText = (TextView) root.findViewById(R.id.email_text);
+        mPhoneText = (TextView) root.findViewById(R.id.phone_text);
+
         return root;
     }
 
+
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        user = Data.getUserFromPrefs(getActivity());
+
+        Timber.d("NAMEPREF " + user.getName());
+
+        mNameText.setText(user.getName());
+        mSurnameText.setText(user.getSurname());
+        mGenderText.setText(user.getGender());
+        mPhoneText.setText(user.getPhone());
+        mEmailText.setText(user.getEmail());
+
     }
 }
