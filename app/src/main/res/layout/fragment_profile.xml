@@ -217,6 +217,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Log out"
+                android:id="@+id/log_out_button"
                 android:layout_marginLeft="32dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginRight="32dp"

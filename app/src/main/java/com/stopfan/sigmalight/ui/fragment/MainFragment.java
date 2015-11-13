@@ -81,7 +81,8 @@ public class MainFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Data.setNotAuthorized(getActivity());
+        //
+        // Data.setNotAuthorized(getActivity());
         //initService();
     }
 
