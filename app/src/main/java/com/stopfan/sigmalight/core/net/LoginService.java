@@ -1,13 +1,10 @@
 package com.stopfan.sigmalight.core.net;
 
 import com.stopfan.sigmalight.core.models.User;
+import com.stopfan.sigmalight.core.net.response.RequestResult;
 
 import retrofit.http.Body;
-import retrofit.http.Field;
-import retrofit.http.Header;
-import retrofit.http.Headers;
 import retrofit.http.POST;
-import retrofit.http.Part;
 import rx.Observable;
 
 /**

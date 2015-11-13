@@ -1,5 +1,6 @@
 package com.stopfan.sigmalight.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -7,10 +8,8 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -19,16 +18,17 @@ import com.stopfan.sigmalight.core.models.NavItem;
 import com.stopfan.sigmalight.core.net.CategoryService;
 import com.stopfan.sigmalight.core.net.LoginService;
 import com.stopfan.sigmalight.core.net.Request;
-import com.stopfan.sigmalight.core.net.RequestResult;
+import com.stopfan.sigmalight.core.net.response.CategoryResult;
+import com.stopfan.sigmalight.core.net.response.RequestResult;
 
 import retrofit.RestAdapter;
 import retrofit.android.AndroidLog;
 import retrofit.converter.GsonConverter;
-import rx.Scheduler;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
+import timber.log.Timber;
 
 /**
  * Created by Denys on 11/7/2015.
@@ -60,7 +60,6 @@ public class ParentActivity extends AppCompatActivity {
         super.onStart();
         initService();
         fetchCategories();
-        setNavigationView();
     }
 
     @Override
@@ -78,18 +77,42 @@ public class ParentActivity extends AppCompatActivity {
             drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
             navigationView = (NavigationView) findViewById(R.id.navigation_view);
 
-            for (int i = 0; i < 4; i++) {
-                navigationView.getMenu().add(R.id.subcategories, i, i, "Test" + i);
-            }
             navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
                 @Override
-                public boolean onNavigationItemSelected(MenuItem item) {
-                    for (int i = 0; i < 4; i++) {
-                        if (i == item.getItemId()) {
-                            item.setChecked(true);
+                public boolean onNavigationItemSelected(MenuItem menuItem) {
+                    //Setting menuItem checked
+                    menuItem.setChecked(true);
+
+                    // Switch menuItem id to start new transition
+                    switch (menuItem.getItemId()) {
+                        case R.id.action_trc:
                             drawerLayout.closeDrawers();
-                        }
+                            break;
+                        case R.id.action_eat:
+                            drawerLayout.closeDrawers();
+                            break;
+                        case R.id.action_night:
+                            drawerLayout.closeDrawers();
+                            break;
+                        case R.id.action_cinema:
+                            drawerLayout.closeDrawers();
+                            break;
+                        case R.id.action_hotel:
+                            drawerLayout.closeDrawers();
+                            break;
+                        case R.id.action_taxi:
+                            drawerLayout.closeDrawers();
+                            break;
+                        case R.id.action_enerteinmant:
+                            drawerLayout.closeDrawers();
+                            break;
+                        case R.id.action_rest:
+                            break;
                     }
+
+                    // Closing left drawer after item click
+                    drawerLayout.closeDrawers();
+
                     return true;
                 }
             });
@@ -116,7 +139,7 @@ public class ParentActivity extends AppCompatActivity {
 
     private void initService() {
         Gson gson = new GsonBuilder()
-                .registerTypeAdapter(RequestResult.class, new RequestResult.ResultDeserializer())
+                .registerTypeAdapter(CategoryResult.class, new CategoryResult.ResultDeserializer())
                 .create();
 
         RestAdapter restAdapter = new RestAdapter.Builder()
@@ -135,10 +158,10 @@ public class ParentActivity extends AppCompatActivity {
                 service.getMenu(new Request<NavItem>("users.getIndexPage", null))
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Action1<RequestResult>() {
+                .subscribe(new Action1<CategoryResult>() {
                     @Override
-                    public void call(RequestResult requestResult) {
-
+                    public void call(CategoryResult requestResult) {
+                        Timber.d("SIZE: " + requestResult.data.size());
                     }
                 }, new Action1<Throwable>() {
                     @Override

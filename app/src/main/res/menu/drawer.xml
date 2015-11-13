@@ -6,6 +6,47 @@
         android:id="@+id/subcategories"
         android:checkableBehavior="single">
 
+        <item
+            android:id="@+id/action_trc"
+            android:checked="true"
+            android:title="Торговые центры" />
+
+        <item
+            android:id="@+id/action_eat"
+            android:checkable="false"
+            android:title="Где поесть"></item>
+
+
+        <item
+            android:id="@+id/action_night"
+            android:checkable="false"
+            android:title="Ночная жизнь" />
+
+        <item
+            android:id="@+id/action_cinema"
+            android:checkable="false"
+            android:title="Кинотеатры" />
+
+
+        <item
+            android:id="@+id/action_hotel"
+            android:checkable="false"
+            android:title="Гостиницы" />
+
+        <item
+            android:id="@+id/action_taxi"
+            android:checkable="false"
+            android:title="Такси" />
+
+        <item
+            android:id="@+id/action_enerteinmant"
+            android:checkable="false"
+            android:title="Развлечения" />
+
+        <item
+            android:id="@+id/action_rest"
+            android:checkable="false"
+            android:title="Отдых" />
 
 
     </group>

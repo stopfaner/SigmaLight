@@ -19,7 +19,7 @@ import com.stopfan.sigmalight.R;
 import com.stopfan.sigmalight.core.models.User;
 import com.stopfan.sigmalight.core.net.LoginService;
 import com.stopfan.sigmalight.core.net.Request;
-import com.stopfan.sigmalight.core.net.RequestResult;
+import com.stopfan.sigmalight.core.net.response.RequestResult;
 import com.stopfan.sigmalight.core.utils.Data;
 
 import retrofit.RestAdapter;

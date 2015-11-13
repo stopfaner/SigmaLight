@@ -1,4 +1,4 @@
-package com.stopfan.sigmalight.core.net;
+package com.stopfan.sigmalight.core.net.response;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializationContext;
@@ -8,7 +8,6 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.annotations.SerializedName;
 import com.stopfan.sigmalight.core.models.SubCategory;
-import com.stopfan.sigmalight.core.models.User;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;

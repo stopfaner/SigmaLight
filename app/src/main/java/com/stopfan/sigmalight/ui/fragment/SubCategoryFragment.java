@@ -12,13 +12,12 @@ import android.view.ViewGroup;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.stopfan.sigmalight.R;
-import com.stopfan.sigmalight.core.models.Category;
 import com.stopfan.sigmalight.core.models.SubCategory;
 import com.stopfan.sigmalight.core.net.CategoryService;
 import com.stopfan.sigmalight.core.net.LoginService;
 import com.stopfan.sigmalight.core.net.Request;
-import com.stopfan.sigmalight.core.net.RequestResult;
-import com.stopfan.sigmalight.core.net.SubResult;
+import com.stopfan.sigmalight.core.net.response.RequestResult;
+import com.stopfan.sigmalight.core.net.response.SubResult;
 import com.stopfan.sigmalight.core.utils.RxUtils;
 import com.stopfan.sigmalight.ui.adapter.SubCategoryAdapter;
 
@@ -32,7 +31,6 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
-import timber.log.Timber;
 
 /**
  * Created by Denys on 11/11/2015.
@@ -124,7 +122,7 @@ public class SubCategoryFragment extends Fragment{
 
     private void fetchCategories() {
         subscription
-                .add(service.getSubCategories(new Request<SubCategory>("users.get-sub-category", new SubCategory(new Long(1))))
+                .add(service.getSubCategories(new Request<>("users.get-sub-category", new SubCategory(new Long(1))))
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action1<SubResult>() {

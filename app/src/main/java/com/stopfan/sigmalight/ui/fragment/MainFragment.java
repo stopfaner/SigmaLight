@@ -8,15 +8,14 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.stopfan.sigmalight.R;
-import com.stopfan.sigmalight.core.models.SubCategory;
-import com.stopfan.sigmalight.core.models.User;
+import com.stopfan.sigmalight.core.net.CategoryService;
 import com.stopfan.sigmalight.core.net.LoginService;
-import com.stopfan.sigmalight.core.net.RequestResult;
+import com.stopfan.sigmalight.core.net.response.CategoryResult;
+import com.stopfan.sigmalight.core.net.response.RequestResult;
 import com.stopfan.sigmalight.core.utils.Data;
 
 import retrofit.RestAdapter;
@@ -29,7 +28,7 @@ import rx.subscriptions.CompositeSubscription;
  */
 public class MainFragment extends Fragment {
 
-    private LoginService service;
+    private CategoryService service;
     private CompositeSubscription subscription;
 
     private View trcCategory;
@@ -89,7 +88,7 @@ public class MainFragment extends Fragment {
     private void initService() {
 
         Gson gson = new GsonBuilder()
-                .registerTypeAdapter(RequestResult.class, new RequestResult.ResultDeserializer())
+                .registerTypeAdapter(CategoryResult.class, new CategoryResult.ResultDeserializer())
                 .create();
 
         RestAdapter restAdapter = new RestAdapter.Builder()
@@ -99,7 +98,7 @@ public class MainFragment extends Fragment {
                 .setConverter(new GsonConverter(gson))
                 .build();
 
-        service = restAdapter.create(LoginService.class);
+        service = restAdapter.create(CategoryService.class);
         subscription = new CompositeSubscription();
 
     }

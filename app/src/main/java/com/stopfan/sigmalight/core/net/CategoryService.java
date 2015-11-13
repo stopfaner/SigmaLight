@@ -3,6 +3,9 @@ package com.stopfan.sigmalight.core.net;
 import com.stopfan.sigmalight.core.models.NavItem;
 import com.stopfan.sigmalight.core.models.Shop;
 import com.stopfan.sigmalight.core.models.SubCategory;
+import com.stopfan.sigmalight.core.net.response.CategoryResult;
+import com.stopfan.sigmalight.core.net.response.RequestResult;
+import com.stopfan.sigmalight.core.net.response.SubResult;
 
 import retrofit.http.Body;
 import retrofit.http.POST;
@@ -15,7 +18,7 @@ public interface CategoryService {
     String ENDPOINT = "http://sigma-light.com/";
 
     @POST("/api/")
-    Observable<RequestResult> getMenu(@Body Request<NavItem> itemRequest);
+    Observable<CategoryResult> getMenu(@Body Request<NavItem> itemRequest);
 
     @POST("/api/")
     Observable<SubResult> getSubCategories(@Body Request<SubCategory> subCategoryRequest);

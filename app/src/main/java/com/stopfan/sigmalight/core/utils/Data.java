@@ -27,15 +27,15 @@ public class Data {
 
     public static void saveUserData(Context context, User user) {
         PreferenceManager.getDefaultSharedPreferences(context)
-                .edit().putString(Constants.UserData.USER_NAME, user.getName());
+                .edit().putString(Constants.UserData.USER_NAME, user.getName()).commit();
         PreferenceManager.getDefaultSharedPreferences(context)
-                .edit().putString(Constants.UserData.USER_SURNAME, user.getSurname());
+                .edit().putString(Constants.UserData.USER_SURNAME, user.getSurname()).commit();
         PreferenceManager.getDefaultSharedPreferences(context)
-                .edit().putString(Constants.UserData.USER_GENDER, user.getGender());
+                .edit().putString(Constants.UserData.USER_GENDER, user.getGender()).commit();
         PreferenceManager.getDefaultSharedPreferences(context)
-                .edit().putString(Constants.UserData.USER_PHONE, user.getPhone());
+                .edit().putString(Constants.UserData.USER_PHONE, user.getPhone()).commit();
         PreferenceManager.getDefaultSharedPreferences(context)
-                .edit().putString(Constants.UserData.USER_EMAIL, user.getEmail());
+                .edit().putString(Constants.UserData.USER_EMAIL, user.getEmail()).commit();
     }
 
     public static User getUserFromPrefs(Context context) {
